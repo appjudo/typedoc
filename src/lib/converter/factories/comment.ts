@@ -77,8 +77,8 @@ function getJSDocCommentRanges(node: ts.Node, text: string): ts.CommentRange[] {
         commentRanges = toArray(ts.getTrailingCommentRanges(text, node.pos)).concat(commentRanges);
     }
 
-    // True if the comment starts with '/**' but not if it is '/**/'
-    return commentRanges.filter(({ pos }) => text.substr(pos, 3) === '/**' && text[pos + 4] !== '/');
+    // TODO: Add option to use all comments or only those starting with /**
+    return commentRanges;
 }
 
 /**
